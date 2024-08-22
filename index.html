@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <link href="index.js" rel="functionality">
+    <link href="index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Guess the Number</h1>
+        <p>Guess a number between 1 and 10:</p>
+        <input type="number" id="userGuess" min="1" max="10">
+        <button onclick="checkGuess()">Submit</button>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        const randomNumber = Math.floor(Math.random() * 10 + 1);
+
+        function checkGuess() {
+            const userGuess = parseInt(document.getElementById('userGuess').value, 10);
+            const resultDiv = document.getElementById('result');
+
+            if (userGuess === randomNumber) {
+                resultDiv.textContent = 'Congratulations!🎉 You guessed the right number 🎉';
+                resultDiv.style.color = 'green';
+            } else {
+                resultDiv.textContent = 'Oops! You guessed the wrong number. Try again 🔁';
+                resultDiv.style.color = 'red';
+            }
+            // Optional: show the correct number
+            console.log('The correct number was:', randomNumber);
+        }
+    </script>
+</body>
+</html>
+
